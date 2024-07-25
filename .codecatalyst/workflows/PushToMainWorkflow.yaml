@@ -35,9 +35,9 @@ Actions:
         - Run: npm run build
       Container:
         Registry: CODECATALYST
-        Image: CodeCatalystLinux_x86_64:2024_03
+        Image: CodeCatalystLinuxLambda_x86_64:2024_03
     Compute:
-      Type: EC2
+      Type: Lambda
   DeployToAWSAmplifyHosting_7f:
     # Identifies the action. Do not modify this value.
     Identifier: codecatalyst-labs/deploy-to-amplify-hosting@v1.1.0
@@ -56,6 +56,6 @@ Actions:
       AppStackName: MeetupDemoClayTest
       CreateBranch: true
       AmplifyBranchName: ${WorkflowSource.BranchName}
-      Path: .
+      Path: dist
     DependsOn:
       - BuildDist
